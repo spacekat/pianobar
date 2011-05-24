@@ -9,11 +9,12 @@ DYNLINK:=0
 
 # Respect environment variables set by user; does not work with :=
 ifeq (${CFLAGS},)
-	CFLAGS=-O2 -DNDEBUG
+	CFLAGS=-O2 -DNDEBUG -I/opt/local/include -arch x86_64
 endif
 ifeq (${CC},cc)
-	CC=c99
+	CC=gcc
 endif
+LDFLAGS:=-L/opt/local/lib -arch x86_64
 
 PIANOBAR_DIR=src
 PIANOBAR_SRC=\
