@@ -853,7 +853,8 @@ void BarUiStartEventCmd (const BarSettings_t *settings, const char *type,
 
 			fprintf (pipeWriteFd, "stationCount=%zd\n", stationCount);
 
-			for (size_t i = 0; i < stationCount; i++) {
+			size_t i;
+			for (i = 0; i < stationCount; i++) {
 				const PianoStation_t *currStation = sortedStations[i];
 				fprintf (pipeWriteFd, "station%zd=%s\n", i,
 						currStation->name);

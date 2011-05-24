@@ -884,7 +884,8 @@ static void PianoXmlParseGetStationInfoCb (const char *key, const ezxml_t value,
 
 	if (strcmp ("seeds", key) == 0) {
 		const ezxml_t dataNode = ezxml_get (value, "array", 0, "data", -1);
-		for (ezxml_t seedNode = ezxml_child (dataNode, "value"); seedNode;
+		ezxml_t seedNode;
+		for (seedNode = ezxml_child (dataNode, "value"); seedNode;
 					seedNode = seedNode->next) {
 			struct PianoXmlParseSeedBag bag;
 			memset (&bag, 0, sizeof (bag));
@@ -943,7 +944,8 @@ static void PianoXmlParseGetStationInfoCb (const char *key, const ezxml_t value,
 		}
 	} else if (strcmp ("feedback", key) == 0) {
 		const ezxml_t dataNode = ezxml_get (value, "array", 0, "data", -1);
-		for (ezxml_t feedbackNode = ezxml_child (dataNode, "value"); feedbackNode;
+		ezxml_t feedbackNode;
+		for (feedbackNode = ezxml_child (dataNode, "value"); feedbackNode;
 					feedbackNode = feedbackNode->next) {
 			if (PianoXmlParsePlaylistStruct (feedbackNode, &info->feedback) !=
 					PIANO_RET_OK) {

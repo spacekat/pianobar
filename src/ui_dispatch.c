@@ -45,7 +45,8 @@ BarKeyShortcutId_t BarUiDispatch (BarApp_t *app, const char key, PianoStation_t 
 		context |= BAR_DC_SONG;
 	}
 
-	for (size_t i = 0; i < BAR_KS_COUNT; i++) {
+	size_t i;
+	for (i = 0; i < BAR_KS_COUNT; i++) {
 		if (app->settings.keys[i] != BAR_KS_DISABLED &&
 				app->settings.keys[i] == key) {
 			if ((dispatchActions[i].context & context) == dispatchActions[i].context) {

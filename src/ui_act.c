@@ -79,7 +79,8 @@ static int BarTransformIfShared (BarApp_t *app, PianoStation_t *station) {
  */
 BarUiActCallback(BarUiActHelp) {
 	BarUiMsg (&app->settings, MSG_NONE, "\r");
-	for (size_t i = 0; i < BAR_KS_COUNT; i++) {
+	size_t i;
+	for (i = 0; i < BAR_KS_COUNT; i++) {
 		if (dispatchActions[i].helpText != NULL &&
 				(context & dispatchActions[i].context) == dispatchActions[i].context &&
 				app->settings.keys[i] != BAR_KS_DISABLED) {
