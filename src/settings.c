@@ -247,7 +247,8 @@ void BarSettingsRead (BarSettings_t *settings) {
 		} else if (streq ("tls_fingerprint", key)) {
 			/* expects 40 byte hex-encoded sha1 */
 			if (strlen (val) == 40) {
-				for (size_t i = 0; i < 20; i++) {
+				size_t i;
+				for (i = 0; i < 20; i++) {
 					char hex[3];
 					memcpy (hex, &val[i*2], 2);
 					hex[2] = '\0';
